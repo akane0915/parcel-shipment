@@ -14,6 +14,10 @@ class Parcel
     @current_month = Time.new().month()
   end
 
+  define_method(:save) do
+    @@all_parcels.push(self)
+  end
+
   define_method(:volume) do
     @length.*(@width).*(@height)
   end

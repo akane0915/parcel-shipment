@@ -23,9 +23,17 @@ describe('Parcel') do
     end
   end
 
-  describe(".all") do
-    it("is empty at first") do
+  describe('.all') do
+    it('is empty at first') do
       expect(Parcel.all()).to(eq([]))
+    end
+  end
+
+  describe('#save') do
+    it('saves each parcel to the all parcels array') do
+      test_parcel = Parcel.new(4,5,6,10,'next day')
+      test_parcel.save()
+      expect(Parcel.all()).to(eq([test_parcel]))
     end
   end
 
