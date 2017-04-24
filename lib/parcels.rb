@@ -5,10 +5,20 @@ class Parcel
     @height = height
     @weight = weight
     @delivery = delivery
+    @current_month = Time.new().month()
   end
 
   define_method(:volume) do
     @length.*(@width).*(@height)
+  end
+
+  define_method(:discount) do
+    discount_months = [4,5]
+    discount = 0
+    if discount_months.include?(@current_month)
+      discount = 0.1
+    end
+    discount
   end
 
   define_method(:cost) do
@@ -36,9 +46,12 @@ class Parcel
     else
       cost_array.push((@weight.-(50)).*(0.50))
     end
+
     cost_array.each() do |price|
       cost += price
     end
+
+    cost *= (1.-(discount()))
 
     "$".+(cost.round(2).to_s).+('0')
   end
