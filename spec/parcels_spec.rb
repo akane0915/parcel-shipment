@@ -23,5 +23,11 @@ describe('Parcel') do
     end
   end
 
+  describe(".all") do
+    it("is empty at first") do
+      expect(Parcel.all()).to(eq([]))
+    end
+  end
+
 
 end

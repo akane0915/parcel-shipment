@@ -1,4 +1,10 @@
 class Parcel
+  @@all_parcels = []
+
+  define_singleton_method(:all) do
+    @@all_parcels
+  end
+
   define_method(:initialize) do |length, width, height, weight, delivery|
     @length = length
     @width = width
