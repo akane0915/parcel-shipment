@@ -8,4 +8,11 @@ describe('Parcel') do
       expect(test_parcel.volume()).to(eq(120))
     end
   end
+
+  describe('#cost') do
+    it('calculates the cost of shipping the box') do
+      test_parcel = Parcel.new(4,5,6,10,'next day')
+      expect(test_parcel.cost()).to(eq('$5.00'))
+    end
+  end
 end
